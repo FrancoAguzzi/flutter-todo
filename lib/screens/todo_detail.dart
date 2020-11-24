@@ -30,7 +30,7 @@ class _TodoDetailState extends State<TodoDetail> {
 
   _saveTodo() async {
     if (_tituloController.text.isEmpty || _descricaoController.text.isEmpty) {
-      key.currentState.showSnackBar(SnackBar(content: Text('Preencha ambos campos.')));
+      key.currentState.showSnackBar(SnackBar(content: Text('Please write a title and a description.')));
     } else {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       List<Todo> list = [];
@@ -67,7 +67,7 @@ class _TodoDetailState extends State<TodoDetail> {
             child: TextField(
               controller: _tituloController,
               decoration: InputDecoration(
-                hintText: 'Título',
+                hintText: 'Title',
                 border: OutlineInputBorder()
               ),
             ),
@@ -77,7 +77,7 @@ class _TodoDetailState extends State<TodoDetail> {
             child: TextField(
               controller: _descricaoController,
               decoration: InputDecoration(
-                  hintText: 'Descrição',
+                  hintText: 'Description',
                 border: OutlineInputBorder()
               ),
             ),
@@ -87,7 +87,7 @@ class _TodoDetailState extends State<TodoDetail> {
             child: ButtonTheme(
               minWidth: double.infinity,
               child: RaisedButton(
-                child: Text('Salvar'),
+                child: Text('Save'),
                 color: Colors.blue,
                 textColor: Colors.white,
                 onPressed: () {

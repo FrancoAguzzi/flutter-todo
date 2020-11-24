@@ -53,7 +53,7 @@ class _TodoListState extends State<TodoList> {
         context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text("Confirme sua ação"),
+          title: Text("Confirm"),
           content: Text(text),
           actions: [
             FlatButton(onPressed: () => Navigator.pop(context), child: Text('Não')),
@@ -62,7 +62,7 @@ class _TodoListState extends State<TodoList> {
                 confirmationFct(index);
                 Navigator.pop(context);
               },
-              child: Text('Sim')
+              child: Text('Yes')
             ),
           ],
         );
@@ -91,10 +91,10 @@ class _TodoListState extends State<TodoList> {
               trailing: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
-                  IconButton(icon: Icon(Icons.clear), onPressed: () => _showAlertDialog(context, 'Deseja excluir este item?', _removeItem, index)),
+                  IconButton(icon: Icon(Icons.clear), onPressed: () => _showAlertDialog(context, 'Do you want to delete this item?', _removeItem, index)),
                   Visibility(
                       visible: list[index].status == 'A',
-                      child: IconButton(icon: Icon(Icons.check), onPressed: () => _showAlertDialog(context, 'Deseja finalizar este item?', _doneItem, index))
+                      child: IconButton(icon: Icon(Icons.check), onPressed: () => _showAlertDialog(context, 'Do you want to finish this item?', _doneItem, index))
                   )
                 ],
               ),
